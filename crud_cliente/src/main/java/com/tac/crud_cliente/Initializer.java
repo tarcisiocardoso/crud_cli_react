@@ -1,20 +1,17 @@
 package com.tac.crud_cliente;
 
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.google.gson.Gson;
 import com.tac.crud_cliente.model.Cliente;
 import com.tac.crud_cliente.model.ClienteRepository;
-import com.tac.crud_cliente.model.Telefone;
 
 @Component
 public class Initializer implements CommandLineRunner {
-
+	
     private final ClienteRepository repository;
 
     public Initializer(ClienteRepository repository) {
@@ -23,21 +20,18 @@ public class Initializer implements CommandLineRunner {
 
     @Override
     public void run(String... strings) {
-        Stream.of("Ana", "Alessandra", "João",
-                "Paulo").forEach(name ->
-                repository.save(new Cliente(name))
+    	Gson g = new Gson();
+    	Stream.of(
+        		"{\"nome\":\"Carmen\",\"cpf\":3577600,\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Goias\",\"uf\":\"GO\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}, {\"numero\":\"6199783485\",\"tipo\":\"C\"}], \"email\": [\"t@g.com\",\"t@ig.com\"]}",
+        		"{\"nome\":\"Cristiane\",\"cpf\":3577601,\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Brasilia\",\"uf\":\"DF\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}]}",
+        		"{\"nome\":\"Daniela\",\"cpf\":3577602,\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Goias\",\"uf\":\"GO\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}]}"
+        		).forEach(json ->{
+//        			Cliente c = g.fromJson(json, Cliente.class);
+//        			c.email = new String[] {"t@g.com", "t@ig.com"};
+//        			repository.save(c);
+        			repository.save(g.fromJson(json, Cliente.class));
+        		}
         );
-
-        Cliente cliente = repository.findByNome("Ana");
-        		
-        Set<Telefone> lst = Stream.of(new Telefone("99783487")).collect(Collectors.toSet());
-        
-        System.out.println("--->"+ lst);
-        System.out.println("===>"+ cliente );
-        cliente.telefone = lst;
-        repository.save(
-        		cliente
-        		);
 
         repository.findAll().forEach(System.out::println);
     }

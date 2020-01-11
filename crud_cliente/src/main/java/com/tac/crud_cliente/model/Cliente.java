@@ -20,14 +20,16 @@ public class Cliente {
 	@Column(nullable = false)
 	public String nome;
 
-//	@Column(nullable = false)
-	public String cqf;
+	@Column(nullable = false)
+	public String cpf;
 
 	public String cep;
 	public String logradouro;
 	public String bairro;
 	public String cidade;
+	public String estado;
 	public String uf;
+	public String []email;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public Set<Telefone> telefone;

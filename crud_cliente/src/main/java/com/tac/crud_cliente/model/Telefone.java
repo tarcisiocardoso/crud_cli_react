@@ -13,13 +13,13 @@ public class Telefone {
 	public Long id;
 	
 	@Column(nullable = false)
-	public String telefone;
+	public String numero;
 
 	@Column(nullable = false)
 	public String tipo;
 
 	public Telefone(String t) {
-		this.telefone = t;
+		this.numero = t;
 		tipo = "C";
 	}
 
@@ -27,6 +27,6 @@ public class Telefone {
 	}
 
 	public String toString() {
-		return telefone;
+		return numero;
 	}
 }
