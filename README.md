@@ -15,7 +15,7 @@ Fazer clone do projeto:
 Ir para o diretorio crud_cliente:
 `cd crud_cliente`
 
-Esse é o back com spring boot. Executar o seguinte comando para iniciar o back:
+Esse é o back utilizando spring boot. Execute o seguinte comando para iniciar o serviço:
 `mvnw spring-boot:run`
 
 O serviço back pode ser acessado pelo link:
@@ -25,7 +25,7 @@ O serviço back pode ser acessado pelo link:
 Esse acessa a api buscando todos os clientes no formato json
 
 Após esse ponto vá para o diretório do front:
- `../../front`
+ `cd ../../front`
  
 Em seguida poderá ser iniciado o serviço do front. Primeiro instale as dependencias:
 
@@ -35,15 +35,26 @@ Depois inicie o serviço
 
 `yarn start`
 
-Aguarde ate que o navegador seja carregado
+Aguarde ate que o navegador seja carregado.
 
-### Comandos
+#### Comandos
 Criação do front-end e bibliotecas
 
-`yarn create react-app front`
+**Spring**
+web
+JPA
+H2 dabatabe
 
-`cd front`
-`yarn add bootstrap@4.1.3 react-cookie@3.0.4 react-router-dom@4.3.1 reactstrap@6.5.0`
-`yarn add react-masked-field`
+**React**
+bootstrap@4.1.3 
+react-cookie@3.0.4 
+react-router-dom@4.3.1 
+reactstrap@6.5.0`
+react-masked-field
 
-`yarn start`
+
+#### Referencia:
+https://developer.okta.com/blog/2018/07/19/simple-crud-react-and-spring-boot
+https://viacep.com.br
+https://reactstrap.github.io/
+https://start.spring.io/
