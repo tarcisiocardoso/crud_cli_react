@@ -10,12 +10,15 @@ O Front fica no diretório front e pode ser utilizado o yarn ou qualquer gerenci
 ### Instrução para execução
 
 Fazer clone do projeto:
+
 `git clone https://github.com/tarcisiocardoso/crud_cli_react`
 
 Ir para o diretorio crud_cliente:
+
 `cd crud_cliente`
 
 Esse é o back utilizando spring boot. Execute o seguinte comando para iniciar o serviço:
+
 `mvnw spring-boot:run`
 
 O serviço back pode ser acessado pelo link:
@@ -25,6 +28,7 @@ O serviço back pode ser acessado pelo link:
 Esse acessa a api buscando todos os clientes no formato json
 
 Após esse ponto vá para o diretório do front:
+
  `cd ../../front`
  
 Em seguida poderá ser iniciado o serviço do front. Primeiro instale as dependencias:
