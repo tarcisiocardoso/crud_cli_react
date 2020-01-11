@@ -45,20 +45,24 @@ Aguarde ate que o navegador seja carregado.
 Criação do front-end e bibliotecas
 
 **Spring**
+
 web
 JPA
 H2 dabatabe
 
 **React**
+
 bootstrap@4.1.3 
 react-cookie@3.0.4 
 react-router-dom@4.3.1 
-reactstrap@6.5.0`
+reactstrap@6.5.0
 react-masked-field
 
 
-#### Referencia:
-https://developer.okta.com/blog/2018/07/19/simple-crud-react-and-spring-boot
+#### Referência:
+https://react-bootstrap.github.io/components/overlays/#popovers
 https://viacep.com.br
 https://reactstrap.github.io/
 https://start.spring.io/
+https://www.npmjs.com/package/react-masked-field
+
