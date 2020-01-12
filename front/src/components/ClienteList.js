@@ -45,6 +45,7 @@ class ClienteList extends Component {
     if (isLoading) {
       return <p>Loading...</p>;
     }
+    let acesso = localStorage.getItem("acesso");
 
     const clienteList = clientes.map(cliente => {
       const endereco = `${cliente.logradouro || ''} ${cliente.cidade || ''} ${cliente.uf || ''}`;
@@ -56,30 +57,34 @@ class ClienteList extends Component {
           return <div key={event.id}>{ event.tipo}: { this.mtel(event.numero)}</div>
         })} 
         </td>
+        {( acesso === 'adm' )?
         <td>
           <ButtonGroup>
             <Button size="sm" color="primary" tag={Link} to={"/clientes/" + cliente.id}>Modifica</Button>
             <Button size="sm" color="danger" onClick={() => this.remove(cliente.id)}>Remove</Button>
           </ButtonGroup>
         </td>
+        :<td/>
+        }
       </tr>
     });
 
+    
     return (
       <div>
         <AppNavbar/>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/clientes/new">Novo Cliente</Button>
+            { ( acesso === 'adm' )?<Button color="success" tag={Link} to="/clientes/new">Novo Cliente</Button>:''}
           </div>
-          <h3>Cadastro de Cliente</h3>
+          <h3>Lista de Cliente</h3>
           <Table className="mt-4">
             <thead>
             <tr>
               <th width="20%">Nome</th>
               <th width="30%">Endereço</th>
               <th>Telefone</th>
-              <th width="10%">Ação</th>
+              { ( acesso === 'adm' )?<th width="10%">Ação</th>:<th/>}
             </tr>
             </thead>
             <tbody>
