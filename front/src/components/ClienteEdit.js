@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label, Table, FormFeedback, ButtonGroup } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import MaskedField from 'react-masked-field';
+import {withCookies } from 'react-cookie';
 
 class ClienteEdit extends Component {
 
@@ -214,6 +215,7 @@ class ClienteEdit extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(item),
+      credentials: 'include'
     });
     this.props.history.push('/clientes');
   }
@@ -399,4 +401,4 @@ class ClienteEdit extends Component {
   }
 }
 
-export default withRouter(ClienteEdit);
+export default withCookies(withRouter(ClienteEdit));

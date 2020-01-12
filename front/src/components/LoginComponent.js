@@ -12,8 +12,9 @@ class LoginComponent extends Component {
             hasLoginFailed: false,
             showMsgErro: ''
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.loginClicked = this.loginClicked.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.loginClicked = this.loginClicked.bind(this);
+        this.handleKey = this.handleKey.bind(this);
     }
     handleChange(event) {
         this.setState(
@@ -23,6 +24,12 @@ class LoginComponent extends Component {
             }
         )
     }
+    handleKey(e){
+        if (e.key === 'Enter') {
+          this.loginClicked()
+        }
+      }
+    
     async loginClicked() {
         const { username, password } = this.state;
 
@@ -70,7 +77,7 @@ class LoginComponent extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Login</Label>
-                    <Input type='password' name='password' id='password' value={this.state.password} onChange={this.handleChange} required/>
+                    <Input type='password' name='password' id='password' value={this.state.password} onChange={this.handleChange} required onKeyDown={this.handleKey}/>
                 </FormGroup>
 
                 <button className="btn btn-success" onClick={this.loginClicked} disabled={ !(this.state.username && this.state.password) } >Login</button>

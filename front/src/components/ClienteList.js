@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
+import { withCookies } from 'react-cookie';
+
 
 class ClienteList extends Component {
 
@@ -29,6 +31,7 @@ class ClienteList extends Component {
   async remove(id) {
     await fetch(`/api/cliente/${id}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -97,4 +100,4 @@ class ClienteList extends Component {
   }
 }
 
-export default ClienteList;
+export default withCookies(ClienteList);

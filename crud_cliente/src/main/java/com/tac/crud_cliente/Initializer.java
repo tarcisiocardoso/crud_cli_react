@@ -22,13 +22,10 @@ public class Initializer implements CommandLineRunner {
     public void run(String... strings) {
     	Gson g = new Gson();
     	Stream.of(
-        		"{\"nome\":\"Carmen\",\"cpf\":3577600,\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Goias\",\"uf\":\"GO\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}, {\"numero\":\"6199783485\",\"tipo\":\"C\"}], \"email\": [\"t@g.com\",\"t@ig.com\"]}",
-        		"{\"nome\":\"Cristiane\",\"cpf\":3577601,\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Brasilia\",\"uf\":\"DF\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}]}",
-        		"{\"nome\":\"Daniela\",\"cpf\":3577602,\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Goias\",\"uf\":\"GO\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}]}"
+        		"{\"nome\":\"Carmen\",\"cpf\":\"78424224191\",\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Goias\",\"uf\":\"GO\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}, {\"numero\":\"6199783485\",\"tipo\":\"Celular\"}], \"email\": [\"t@g.com\",\"t@ig.com\"]}",
+        		"{\"nome\":\"Cristiane\",\"cpf\":\"78424224191\",\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Brasilia\",\"uf\":\"DF\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}], \"email\": [\"t@g.com\",\"t@ig.com\"]}",
+        		"{\"nome\":\"Daniela\",\"cpf\":\"78424224191\",\"cep\":\"73805125\",\"logradouro\":\"Rua 10 casa 78\",\"bairro\":\"Primavera\",\"cidade\":\"Formosa\",\"estado\":\"Goias\",\"uf\":\"GO\",\"telefone\":[{\"numero\":\"6199783487\",\"tipo\":\"Celular\"}], \"email\": [\"t@g.com\",\"t@ig.com\"]}"
         		).forEach(json ->{
-//        			Cliente c = g.fromJson(json, Cliente.class);
-//        			c.email = new String[] {"t@g.com", "t@ig.com"};
-//        			repository.save(c);
         			repository.save(g.fromJson(json, Cliente.class));
         		}
         );

@@ -33,11 +33,6 @@ class Home extends Component {
         this.setState({ isAuthenticated: isAuthenticated, user: user })
     }
     login() {
-        // let port = (window.location.port ? ':' + window.location.port : '');
-        // if (port === ':3000') {
-        //     port = ':8080';
-        // }
-        // window.location.href = '//' + window.location.hostname + port + '/login';
         this.props.history.push('/login');
     }
 
@@ -47,17 +42,11 @@ class Home extends Component {
             method: 'POST',
         }).then(res => res.json())
             .then(response => {
-
                 localStorage.removeItem('acesso');
-                // this.props.history.push('/');
-
                 let port = (window.location.port ? ':' + window.location.port : '');
                 window.location.href = '//' + window.location.hostname + port + '/';
             });
-
     }
-
-
 
     render() {
         const message = this.state.user.id !== -1 ?
@@ -67,6 +56,8 @@ class Home extends Component {
         const button = this.state.isAuthenticated ?
             <div>
                 <Button color="link"><Link to="/clientes">{this.state.user.acesso === 'adm' ? 'Adiministrar' : 'Lista de'} Cliente Cadastrados</Link></Button>
+                <br />
+                <Button color="link"><Link to="/logs">Auditoria</Link></Button>
                 <br />
                 <Button color="link" onClick={this.logout}>Logout</Button>
             </div> :
